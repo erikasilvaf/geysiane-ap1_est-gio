@@ -3,28 +3,44 @@
 Sistema de Agendamento de Laboratórios
 Este projeto é uma aplicação web que permite a professores agendar laboratórios para suas atividades, gerenciar reservas e consultar a disponibilidade de laboratórios.
 
-Funcionalidades Principais
+FUNCIONALIDADES PRINCIPAIS: 
 Cadastro de Professores: Permite que professores se cadastrem no sistema.
+
 Login de Professores: Autenticação segura de professores cadastradas.
+
 Listagem de Laboratórios: Exibe todos os laboratórios disponíveis para reserva.
+
 Agendamento de Laboratórios: Professores podem reservar laboratórios para datas e horários específicos.
+
 Consulta de Agendamentos: Visualização dos agendamentos de laboratórios em datas específicas.
+
 Atualização de Agendamento: Permite editar detalhes de um agendamento existente.
+
 Exclusão de Agendamento: Permite remover agendamentos do sistema.
-Definição do Banco de Dados
+
+
+DEFINIÇÃO DO BANCO DE DADOS
+
 O banco de dados do sistema é estruturado da seguinte forma:
 
-Entidades
-users (Professores)
+ENTIDADES:
+
+users: (Professores)
 
 id: Identificador único (PK)
+
 name: Nome do professor(STRING)
+
 email: Email do professor (STRING)
+
 password: Senha criptografada (STRING)
+
 labs (Laboratórios)
 
 id: Identificador único (PK)
+
 name: Nome do laboratório (STRING)
+
 bookings (Agendamentos)
 
 id: Identificador único (PK)
