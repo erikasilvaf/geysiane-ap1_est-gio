@@ -3,83 +3,95 @@
 Sistema de Agendamento de Laboratórios
 Este projeto é uma aplicação web que permite a professores agendar laboratórios para suas atividades, gerenciar reservas e consultar a disponibilidade de laboratórios.
 
-FUNCIONALIDADES PRINCIPAIS: 
-Cadastro de Professores: Permite que professores se cadastrem no sistema.
+● FUNCIONALIDADES PRINCIPAIS: 
 
-Login de Professores: Autenticação segura de professores cadastradas.
+- Cadastro de Professores: Permite que professores se cadastrem no sistema.
 
-Listagem de Laboratórios: Exibe todos os laboratórios disponíveis para reserva.
+- Login de Professores: Autenticação segura de professores cadastradas.
 
-Agendamento de Laboratórios: Professores podem reservar laboratórios para datas e horários específicos.
+- Listagem de Laboratórios: Exibe todos os laboratórios disponíveis para reserva.
 
-Consulta de Agendamentos: Visualização dos agendamentos de laboratórios em datas específicas.
+- Agendamento de Laboratórios: Professores podem reservar laboratórios para datas e horários específicos.
 
-Atualização de Agendamento: Permite editar detalhes de um agendamento existente.
+- Consulta de Agendamentos: Visualização dos agendamentos de laboratórios em datas específicas.
 
-Exclusão de Agendamento: Permite remover agendamentos do sistema.
+- Atualização de Agendamento: Permite editar detalhes de um agendamento existente.
+
+- Exclusão de Agendamento: Permite remover agendamentos do sistema.
 
 
-DEFINIÇÃO DO BANCO DE DADOS
+● DEFINIÇÃO DO BANCO DE DADOS
 
 O banco de dados do sistema é estruturado da seguinte forma:
 
-ENTIDADES:
+> ENTIDADES:
 
-users: (Professores)
+- users: (Professores)
 
-id: Identificador único (PK)
+- id: Identificador único (PK)
 
-name: Nome do professor(STRING)
+- name: Nome do professor(STRING)
 
-email: Email do professor (STRING)
+- email: Email do professor (STRING)
 
-password: Senha criptografada (STRING)
+- password: Senha criptografada (STRING)
 
-labs (Laboratórios)
+/
 
-id: Identificador único (PK)
+- labs (Laboratórios)
 
-name: Nome do laboratório (STRING)
+- id: Identificador único (PK)
 
-bookings (Agendamentos)
+- name: Nome do laboratório (STRING)
 
-id: Identificador único (PK)
-user_id: Chave estrangeira referenciando a tabela de professores (FK)
-lab_id: Chave estrangeira referenciando a tabela de laboratórios (FK)
-date: Data do agendamento (STRING ou formato de data)
-time: Horário do agendamento (STRING)
+- bookings (Agendamentos)
+
+/
+
+- id: Identificador único (PK)
+
+- user_id: Chave estrangeira referenciando a tabela de professores (FK)
+  
+- lab_id: Chave estrangeira referenciando a tabela de laboratórios (FK)
+
+- date: Data do agendamento (STRING ou formato de data)
+
+- time: Horário do agendamento (STRING)
 Relacionamentos
 users possui uma relação de um-para-muitos com bookings (um professor pode fazer vários agendamentos).
 labs possui uma relação de um-para-muitos com bookings (um laboratório pode ser reservado várias vezes).
-Rotas da API (CRUD Funcional)
+
+
+● Rotas da API (CRUD Funcional)
 A aplicação utiliza ExpressJS para implementar as seguintes rotas:
 
-Cadastro de Professores:
+- Cadastro de Professores:
 POST /register: Criptografa a senha e cadastra os professores no sistema.
 
-Login de Professora:
+- Login de Professora:
 POST /login: Autentica os professores registrada e retorna um token de sessão.
 
-Listar Laboratórios:
+- Listar Laboratórios:
 GET /labs: Exibe a lista de todos os laboratórios disponíveis para reserva.
 
-Agendar Laboratório:
+- Agendar Laboratório:
 POST /book: Permite que um professore reserve um laboratório para uma data e horário específicos.
 
-Listar Agendamentos:
+- Listar Agendamentos:
 GET /bookings: Exibe os agendamentos de um laboratório em uma data específica.
 
-Atualizar Agendamento:
+- Atualizar Agendamento:
 PUT /bookings/:id: Atualiza os detalhes de um agendamento existente.
 
-Excluir Agendamento:
+- Excluir Agendamento:
 DELETE /bookings/:id: Remove um agendamento existente.
 
-Diagrama de Rotas
+
+□ DIAGRAMA DE ROTAS 
 Abaixo está um diagrama ilustrando as principais rotas da API:
 
 
-Tecnologias Utilizadas
+■ TECNOLOGIAS UTILIZADAS:
 Node.js e ExpressJS para o backend.
 MySQL ou PostgreSQL para o banco de dados.
 BCrypt para criptografia de senhas.
